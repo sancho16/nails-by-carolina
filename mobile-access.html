@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View on iPhone - Nails by Carolina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd4 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .phone-icon {
+            font-size: 5em;
+            margin: 20px 0;
+        }
+        .alert {
+            background: #e8f4f8;
+            border-left: 5px solid #0066b3;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+        .alert strong {
+            color: #0066b3;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .ip-address {
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 30px 0;
+            letter-spacing: 2px;
+            word-break: break-all;
+        }
+        .steps {
+            text-align: left;
+            margin: 30px 0;
+        }
+        .steps h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        .steps ol {
+            padding-left: 25px;
+        }
+        .steps li {
+            margin: 15px 0;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+        .note {
+            background: #fff9e6;
+            border-left: 5px solid #d4af37;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+        .qr-placeholder {
+            background: #f8f8f8;
+            border: 3px dashed #d4af37;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .qr-placeholder p {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        a {
+            color: #0066b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="phone-icon">📱</div>
+        <h1>View on Your iPhone</h1>
+        <p style="color: #666; margin-bottom: 20px;">Access the animated page from your mobile device</p>
+
+        <div class="alert">
+            <strong>✅ Your Mac's IP Address:</strong>
+            Make sure your iPhone is connected to the same WiFi network as your Mac.
+        </div>
+
+        <div class="ip-address">
+            http://192.168.0.63:8000
+        </div>
+
+        <div class="steps">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li><strong>Connect to WiFi</strong><br>Make sure your iPhone is on the same WiFi network as this Mac</li>
+                <li><strong>Open Safari</strong><br>Open Safari (or any browser) on your iPhone</li>
+                <li><strong>Type the address</strong><br>Enter: <code>http://192.168.0.63:8000</code></li>
+                <li><strong>View the page</strong><br>The animated Nails by Carolina page will load on your iPhone!</li>
+            </ol>
+        </div>
+
+        <div class="note">
+            <strong>💡 Tip:</strong> You can also create a QR code for this URL to scan with your iPhone camera for even easier access. Just search "QR code generator" online and paste the URL above.
+        </div>
+
+        <div class="qr-placeholder">
+            <div style="font-size: 3em;">📷</div>
+            <p>Scan a QR code here if you generate one<br>for http://192.168.0.63:8000</p>
+        </div>
+
+        <div class="note">
+            <strong>⚠️ Troubleshooting:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Make sure both devices are on the same WiFi</li>
+                <li>Check that the server is still running (you should see it in terminal)</li>
+                <li>Try turning off VPN if you have one active</li>
+                <li>If it doesn't work, your Mac's firewall might be blocking connections</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 30px; color: #666;">
+            <a href="index.html">← Back to Main Page</a>
+        </p>
+    </div>
+</body>
+</html>

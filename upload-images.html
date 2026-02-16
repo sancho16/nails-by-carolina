@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Setup Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+        .instruction {
+            background: #fff9e6;
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            margin: 20px 0;
+        }
+        .file-list {
+            list-style: none;
+            padding: 0;
+        }
+        .file-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f8f8;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .file-list li::before {
+            content: '📁';
+            font-size: 1.5em;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .step h3 {
+            color: #d4af37;
+            margin-top: 0;
+        }
+        a {
+            color: #0066b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Image Setup Instructions</h1>
+        
+        <div class="instruction">
+            <strong>⚠️ Important:</strong> The website needs 5 images to display properly. Follow the steps below to add them.
+        </div>
+
+        <div class="step">
+            <h3>Step 1: Locate Your Images</h3>
+            <p>You have the following images from the flyer that need to be saved:</p>
+            <ul>
+                <li>Logo with hand and leaf design</li>
+                <li>Professional photos of Carolina (2 photos)</li>
+                <li>Photo at MY SALON Suites entrance</li>
+                <li>OPI gel polish bottles on shelf</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Save Images to the Folder</h3>
+            <p>Save each image to the <code>images/</code> folder with these exact names:</p>
+            <ul class="file-list">
+                <li><code>logo.png</code> - The Nails by Carolina logo</li>
+                <li><code>professional1.jpg</code> - Carolina at desk with certifications</li>
+                <li><code>professional2.jpg</code> - Another photo of Carolina</li>
+                <li><code>salon-entrance.jpg</code> - Carolina at MY SALON Suites entrance</li>
+                <li><code>opi-products.jpg</code> - OPI polish bottles</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Refresh the Page</h3>
+            <p>Once all images are saved, go back to <a href="index.html">the main page</a> and refresh your browser.</p>
+        </div>
+
+        <div class="instruction">
+            <strong>💡 Tip:</strong> You can drag and drop image files directly into the <code>images</code> folder in your file explorer, then rename them to match the names above.
+        </div>
+
+        <p style="text-align: center; margin-top: 40px;">
+            <a href="index.html" style="background: #d4af37; color: white; padding: 15px 30px; border-radius: 5px; display: inline-block;">← Back to Main Page</a>
+        </p>
+    </div>
+</body>
+</html>
