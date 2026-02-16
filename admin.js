@@ -1,3 +1,12 @@
+// Logout functionality
+document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    if (confirm('Are you sure you want to logout?')) {
+        sessionStorage.removeItem('adminAuthenticated');
+        sessionStorage.removeItem('adminLoginTime');
+        window.location.href = 'admin-login.html';
+    }
+});
+
 // Sample data
 const appointments = [
     { time: '9:00 AM', duration: '60 min', client: 'Sarah Johnson', service: 'Gel Manicure', status: 'confirmed' },

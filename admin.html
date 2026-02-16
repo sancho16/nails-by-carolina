@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="admin-styles.css">
 </head>
 <body>
+    <!-- Auth Check Script -->
+    <script>
+        // Check authentication
+        if (sessionStorage.getItem('adminAuthenticated') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+        
+        // Check session timeout (4 hours)
+        const loginTime = new Date(sessionStorage.getItem('adminLoginTime'));
+        const now = new Date();
+        const hoursSinceLogin = (now - loginTime) / (1000 * 60 * 60);
+        
+        if (hoursSinceLogin > 4) {
+            sessionStorage.removeItem('adminAuthenticated');
+            sessionStorage.removeItem('adminLoginTime');
+            window.location.href = 'admin-login.html';
+        }
+    </script>
     <div class="admin-container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -49,6 +67,10 @@
                     <span>🌐</span>
                     <span>View Website</span>
                 </a>
+                <button class="logout-btn" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
             </div>
         </aside>
 
