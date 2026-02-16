@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════
+  QUICK DEPLOYMENT COMMANDS - Nails by Carolina
+═══════════════════════════════════════════════════════════════
+
+✅ Git repository is initialized and ready!
+
+📋 STEP 1: Create GitHub Repository
+───────────────────────────────────────────────────────────────
+1. Go to: https://github.com/new
+2. Repository name: nails-by-carolina
+3. Description: Animated digital flyer for Nails by Carolina
+4. Make it Public
+5. DO NOT check any boxes (no README, no .gitignore, no license)
+6. Click "Create repository"
+
+📋 STEP 2: Copy Your Repository URL
+───────────────────────────────────────────────────────────────
+After creating, GitHub will show you a URL like:
+https://github.com/YOUR-USERNAME/nails-by-carolina.git
+
+Copy this URL!
+
+📋 STEP 3: Run These Commands
+───────────────────────────────────────────────────────────────
+Paste your repository URL in the first command below:
+
+git remote add origin https://github.com/YOUR-USERNAME/nails-by-carolina.git
+git branch -M main
+git push -u origin main
+
+📋 STEP 4: Enable GitHub Pages
+───────────────────────────────────────────────────────────────
+1. Go to your repo: https://github.com/YOUR-USERNAME/nails-by-carolina
+2. Click "Settings" tab
+3. Click "Pages" in left sidebar
+4. Under "Source":
+   - Branch: main
+   - Folder: / (root)
+5. Click "Save"
+6. Wait 2-3 minutes
+
+🌐 Your site will be live at:
+https://YOUR-USERNAME.github.io/nails-by-carolina/
+
+═══════════════════════════════════════════════════════════════
+  DONE! Share the URL and view on any device! 📱💻
+═══════════════════════════════════════════════════════════════

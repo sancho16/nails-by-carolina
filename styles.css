@@ -200,55 +200,82 @@ body {
     animation-delay: 1.7s;
 }
 
-/* QR Section */
-.qr-section {
+/* QR Section / Booking Section */
+.booking-section {
     background: white;
-    padding: 30px;
+    padding: 40px 30px;
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
     animation: fadeInUp 0.8s ease-out 1s both;
 }
 
-.qr-code {
-    width: 180px;
-    height: 180px;
-    background: white;
-    border: 8px solid #1a1a1a;
-    border-radius: 10px;
-    margin: 0 auto 15px;
+.book-now-btn {
+    width: 100%;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    border: none;
+    border-radius: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: rotateIn 1s ease-out 1.2s both;
+    gap: 15px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
 }
 
-.qr-pattern {
-    width: 100px;
-    height: 100px;
-    background: 
-        linear-gradient(90deg, #1a1a1a 25%, transparent 25%),
-        linear-gradient(#1a1a1a 25%, transparent 25%);
-    background-size: 15px 15px;
-    margin-bottom: 8px;
+.book-now-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
 }
 
-.qr-text {
-    font-weight: bold;
+.btn-icon {
+    font-size: 1.5em;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+.booking-caption {
     font-size: 1em;
-    color: #1a1a1a;
-    letter-spacing: 2px;
-    background: #1a1a1a;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
+    color: #666;
+    margin-top: 15px;
+    font-style: italic;
 }
 
-.qr-caption {
-    font-size: 1.1em;
-    color: #2c2c2c;
-    font-weight: 500;
+/* Booking Modal Container */
+.booking-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+}
+
+.booking-modal-container.show {
+    display: block;
+}
+
+.booking-modal-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Features */
@@ -326,6 +353,11 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
 }
 @keyframes fadeInDown {
     from {
@@ -409,6 +441,16 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .main-content {
         grid-template-columns: 1fr;
@@ -422,6 +464,14 @@ body {
         padding: 15px;
     }
     
+    .logo-container {
+        padding: 20px 30px;
+    }
+    
+    .logo-image {
+        max-width: 300px;
+    }
+    
     .salon-interior,
     .professional-photo,
     .team-photo {
@@ -431,5 +481,146 @@ body {
     .opi-products,
     .polish-collection {
         height: 200px;
+    }
+    
+    .feature-item h3 {
+        font-size: 0.95em;
+    }
+    
+    .checkmark {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 1.1em;
+    }
+    
+    .book-now-btn {
+        font-size: 1.1em;
+        padding: 18px 25px;
+    }
+    
+    .gehwol-logo {
+        font-size: 1.1em;
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
+    
+    .logo-container {
+        padding: 15px 20px;
+    }
+    
+    .logo-image {
+        max-width: 250px;
+    }
+    
+    .main-content {
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .left-column,
+    .right-column {
+        gap: 15px;
+    }
+    
+    .salon-image,
+    .professional-image,
+    .team-image {
+        height: 200px;
+    }
+    
+    .products-image {
+        height: 150px;
+    }
+    
+    .features {
+        padding: 20px;
+    }
+    
+    .feature-item {
+        padding: 12px 0;
+    }
+    
+    .booking-section {
+        padding: 25px 20px;
+    }
+    
+    .book-now-btn {
+        font-size: 1em;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-icon {
+        font-size: 2em;
+    }
+}
+
+/* iOS Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Prevent zoom on input focus */
+    input, select, textarea, button {
+        font-size: 16px;
+    }
+    
+    /* Smooth scrolling */
+    .container {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix for iOS Safari bottom bar */
+    .booking-modal-container {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Android Specific Fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    /* Hardware acceleration for animations */
+    .feature-card,
+    .image-box,
+    .book-now-btn {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+}
+
+/* Touch-friendly sizing */
+@media (hover: none) and (pointer: coarse) {
+    .book-now-btn,
+    .feature-item,
+    .checkmark {
+        min-height: 44px; /* iOS recommended touch target */
+    }
+    
+    .nav-item {
+        min-height: 48px; /* Android recommended touch target */
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+    .salon-image,
+    .professional-image,
+    .team-image {
+        height: 180px;
+    }
+    
+    .products-image {
+        height: 120px;
+    }
+    
+    .header {
+        padding: 10px;
+    }
+    
+    .logo-container {
+        padding: 15px 25px;
     }
 }

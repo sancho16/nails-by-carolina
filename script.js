@@ -1,3 +1,22 @@
+// Booking modal
+const openBookingBtn = document.getElementById('openBooking');
+const bookingContainer = document.getElementById('bookingModalContainer');
+
+if (openBookingBtn) {
+    openBookingBtn.addEventListener('click', () => {
+        bookingContainer.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// Listen for close message from iframe
+window.addEventListener('message', (event) => {
+    if (event.data === 'closeBooking') {
+        bookingContainer.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+});
+
 // Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1,

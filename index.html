@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#d4af37">
     <title>Nails by Carolina - Luxury Nail Artistry</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -26,12 +29,13 @@
                     </picture>
                 </div>
 
-                <div class="qr-section">
-                    <div class="qr-code">
-                        <div class="qr-pattern"></div>
-                        <p class="qr-text">SCAN ME</p>
-                    </div>
-                    <p class="qr-caption">Book Your Appointment Today</p>
+                <div class="booking-section">
+                    <button class="book-now-btn" id="openBooking">
+                        <span class="btn-icon">📅</span>
+                        <span class="btn-text">Book Appointment</span>
+                        <span class="btn-shine"></span>
+                    </button>
+                    <p class="booking-caption">Schedule your luxury nail experience</p>
                 </div>
 
                 <div class="products-image">
@@ -83,6 +87,11 @@
                 <span>GEHWOL</span>
             </div>
         </footer>
+    </div>
+
+    <!-- Booking Modal Container -->
+    <div class="booking-modal-container" id="bookingModalContainer">
+        <iframe src="booking.html" id="bookingFrame"></iframe>
     </div>
 
     <script src="script.js"></script>
