@@ -10,81 +10,132 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo-container">
+    <div class="page-wrapper">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
                 <picture>
                     <source srcset="images/image1.png" type="image/png">
-                    <img src="images/image1.jpg" alt="Nails by Carolina - Luxury Nail Artistry" class="logo-image" onerror="this.parentElement.parentElement.innerHTML='<div class=\'logo-fallback\'><h1>Nails by Carolina</h1><p>LUXURY NAIL ARTISTRY</p></div>'">
+                    <img src="images/image1.jpg" alt="Nails by Carolina - Luxury Nail Artistry" class="hero-logo" onerror="this.parentElement.parentElement.innerHTML='<div class=\'logo-fallback\'><h1>Nails by Carolina</h1><p>LUXURY NAIL ARTISTRY</p></div>'">
                 </picture>
+                <h2 class="hero-tagline">Experience luxury nail artistry</h2>
+                <p class="hero-subtitle">Premium services in a private, relaxing suite</p>
             </div>
-        </header>
+        </section>
 
-        <section class="main-content">
-            <div class="left-column">
-                <div class="salon-image">
+        <!-- Feature Highlight 1 -->
+        <section class="feature-section">
+            <div class="feature-content reverse">
+                <div class="feature-text">
+                    <h3 class="feature-title">Personalized Excellence</h3>
+                    <p class="feature-description">Every appointment is a bespoke experience tailored to your unique style and preferences. With certifications in advanced nail artistry, Carolina brings expertise and artistry to every service.</p>
+                    <ul class="feature-list">
+                        <li>Premium OPI Gel Products</li>
+                        <li>Clean & Sanitized Tools</li>
+                        <li>Personalized Attention</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
                     <picture>
                         <source srcset="images/image2.png" type="image/png">
-                        <img src="images/image2.jpg" alt="Carolina at desk with certifications" onerror="this.parentElement.parentElement.innerHTML='<div class=\'image-box professional-box\'><div class=\'image-icon\'>👩‍💼</div><p>Image 2: Carolina at desk with certifications</p></div>'">
-                    </picture>
-                </div>
-
-                <div class="booking-section">
-                    <button class="book-now-btn" id="openBooking">
-                        <span class="btn-icon">📅</span>
-                        <span class="btn-text">Book Appointment</span>
-                        <span class="btn-shine"></span>
-                    </button>
-                    <p class="booking-caption">Schedule your luxury nail experience</p>
-                </div>
-
-                <div class="products-image">
-                    <picture>
-                        <source srcset="images/image3.png" type="image/png">
-                        <img src="images/image3.jpg" alt="OPI Gel Polish Collection" onerror="this.parentElement.parentElement.innerHTML='<div class=\'image-box products-box\'><div class=\'image-icon\'>💅</div><p>Image 3: OPI Gel Polish Collection</p></div>'">
-                    </picture>
-                </div>
-            </div>
-
-            <div class="right-column">
-                <div class="professional-image">
-                    <picture>
-                        <source srcset="images/image4.png" type="image/png">
-                        <img src="images/image4.jpg" alt="Carolina at MY SALON Suites entrance" onerror="this.parentElement.parentElement.innerHTML='<div class=\'image-box entrance-box\'><div class=\'image-icon\'>🏢</div><p>Image 4: Carolina at MY SALON Suites entrance</p></div>'">
-                    </picture>
-                </div>
-
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <h3>Premium Products (OPI Gel)</h3>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <h3>Clean & Sanitized Tools</h3>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <h3>Personalized Attention</h3>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <h3>Relaxing Private Suite</h3>
-                    </div>
-                </div>
-
-                <div class="team-image">
-                    <picture>
-                        <source srcset="images/image5.png" type="image/png">
-                        <img src="images/image5.jpg" alt="Carolina professional portrait" onerror="this.parentElement.parentElement.innerHTML='<div class=\'image-box team-box\'><div class=\'image-icon\'>✨</div><p>Image 5: Carolina professional portrait</p></div>'">
+                        <img src="images/image2.jpg" alt="Professional nail artistry" class="feature-image">
                     </picture>
                 </div>
             </div>
         </section>
 
+        <!-- Feature Highlight 2 -->
+        <section class="feature-section dark">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h3 class="feature-title">Your Private Sanctuary</h3>
+                    <p class="feature-description">Step into MY SALON Suites, where luxury meets comfort. Our private suite offers an intimate, relaxing environment designed exclusively for your pampering experience.</p>
+                    <button class="cta-button" id="openBooking">
+                        <span>Book Your Appointment</span>
+                        <span class="cta-icon">→</span>
+                    </button>
+                </div>
+                <div class="feature-media">
+                    <picture>
+                        <source srcset="images/image4.png" type="image/png">
+                        <img src="images/image4.jpg" alt="MY SALON Suites entrance" class="feature-image">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Showcase -->
+        <section class="products-section">
+            <div class="products-content">
+                <h3 class="section-title">Premium Products</h3>
+                <p class="section-subtitle">We use only the finest OPI gel products for lasting beauty</p>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <picture>
+                            <source srcset="images/image3.png" type="image/png">
+                            <img src="images/image3.jpg" alt="OPI Gel Polish Collection" class="product-image">
+                        </picture>
+                    </div>
+                    <div class="product-card">
+                        <picture>
+                            <source srcset="images/image5.png" type="image/png">
+                            <img src="images/image5.jpg" alt="Professional workspace" class="product-image">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-content">
+                <h3 class="section-title">Our Services</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💅</div>
+                        <h4>Classic Manicure</h4>
+                        <p>Traditional nail care with precision and style</p>
+                        <span class="service-price">From $45</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h4>Gel Manicure</h4>
+                        <p>Long-lasting color with OPI gel polish</p>
+                        <span class="service-price">From $65</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌸</div>
+                        <h4>Luxury Pedicure</h4>
+                        <p>Complete foot care and relaxation</p>
+                        <span class="service-price">From $75</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h4>Nail Art Design</h4>
+                        <p>Custom artistic designs for unique expression</p>
+                        <span class="service-price">From $85</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
         <footer class="footer">
-            <div class="gehwol-logo">
-                <span>GEHWOL</span>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#services">Services</a>
+                    <a href="#booking">Book Appointment</a>
+                    <a href="admin.html">Admin</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-legal">
+                    <p>Copyright © 2026 Nails by Carolina LLC. All rights reserved.</p>
+                    <div class="footer-sub-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="#terms">Terms of Use</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
