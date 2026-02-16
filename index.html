@@ -10,135 +10,302 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="page-wrapper">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">Nails by Carolina</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#about">About</a>
+                <button class="nav-cta" id="navBooking">Book Now</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="badge-icon">✨</span>
+                <span>Premium Nail Artistry</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Luxury Nails,</span>
+                <span class="title-line gradient-text">Crafted to Perfection</span>
+            </h1>
+            <p class="hero-description">Experience the art of premium nail care in an exclusive private suite. Where elegance meets expertise.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" id="heroBooking">
+                    <span>Book Your Experience</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <button class="btn-secondary">
+                    <span>View Services</span>
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Rating</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="image-frame">
                 <picture>
                     <source srcset="images/image1.png" type="image/png">
-                    <img src="images/image1.jpg" alt="Nails by Carolina - Luxury Nail Artistry" class="hero-logo" onerror="this.parentElement.parentElement.innerHTML='<div class=\'logo-fallback\'><h1>Nails by Carolina</h1><p>LUXURY NAIL ARTISTRY</p></div>'">
+                    <img src="images/image1.jpg" alt="Nails by Carolina Logo" class="hero-logo-img">
                 </picture>
-                <h2 class="hero-tagline">Experience luxury nail artistry</h2>
-                <p class="hero-subtitle">Premium services in a private, relaxing suite</p>
             </div>
-        </section>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
 
-        <!-- Feature Highlight 1 -->
-        <section class="feature-section">
-            <div class="feature-content reverse">
-                <div class="feature-text">
-                    <h3 class="feature-title">Personalized Excellence</h3>
-                    <p class="feature-description">Every appointment is a bespoke experience tailored to your unique style and preferences. With certifications in advanced nail artistry, Carolina brings expertise and artistry to every service.</p>
-                    <ul class="feature-list">
-                        <li>Premium OPI Gel Products</li>
-                        <li>Clean & Sanitized Tools</li>
-                        <li>Personalized Attention</li>
-                    </ul>
-                </div>
-                <div class="feature-media">
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <span class="section-badge">Our Work</span>
+            <h2 class="section-title">Artistry in Every Detail</h2>
+            <p class="section-subtitle">Discover the craftsmanship that sets us apart</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item large">
+                <div class="gallery-card">
                     <picture>
                         <source srcset="images/image2.png" type="image/png">
-                        <img src="images/image2.jpg" alt="Professional nail artistry" class="feature-image">
+                        <img src="images/image2.jpg" alt="Professional Workspace">
                     </picture>
+                    <div class="gallery-overlay">
+                        <h3>Certified Excellence</h3>
+                        <p>Advanced training & certifications</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Feature Highlight 2 -->
-        <section class="feature-section dark">
-            <div class="feature-content">
-                <div class="feature-text">
-                    <h3 class="feature-title">Your Private Sanctuary</h3>
-                    <p class="feature-description">Step into MY SALON Suites, where luxury meets comfort. Our private suite offers an intimate, relaxing environment designed exclusively for your pampering experience.</p>
-                    <button class="cta-button" id="openBooking">
-                        <span>Book Your Appointment</span>
-                        <span class="cta-icon">→</span>
-                    </button>
+            
+            <div class="gallery-item">
+                <div class="gallery-card">
+                    <picture>
+                        <source srcset="images/image3.png" type="image/png">
+                        <img src="images/image3.jpg" alt="Premium Products">
+                    </picture>
+                    <div class="gallery-overlay">
+                        <h3>Premium Products</h3>
+                        <p>OPI Gel Collection</p>
+                    </div>
                 </div>
-                <div class="feature-media">
+            </div>
+            
+            <div class="gallery-item tall">
+                <div class="gallery-card">
                     <picture>
                         <source srcset="images/image4.png" type="image/png">
-                        <img src="images/image4.jpg" alt="MY SALON Suites entrance" class="feature-image">
+                        <img src="images/image4.jpg" alt="Private Suite">
                     </picture>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Showcase -->
-        <section class="products-section">
-            <div class="products-content">
-                <h3 class="section-title">Premium Products</h3>
-                <p class="section-subtitle">We use only the finest OPI gel products for lasting beauty</p>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <picture>
-                            <source srcset="images/image3.png" type="image/png">
-                            <img src="images/image3.jpg" alt="OPI Gel Polish Collection" class="product-image">
-                        </picture>
-                    </div>
-                    <div class="product-card">
-                        <picture>
-                            <source srcset="images/image5.png" type="image/png">
-                            <img src="images/image5.jpg" alt="Professional workspace" class="product-image">
-                        </picture>
+                    <div class="gallery-overlay">
+                        <h3>Private Suite</h3>
+                        <p>Exclusive & relaxing environment</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services-section">
-            <div class="services-content">
-                <h3 class="section-title">Our Services</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">💅</div>
-                        <h4>Classic Manicure</h4>
-                        <p>Traditional nail care with precision and style</p>
-                        <span class="service-price">From $45</span>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">✨</div>
-                        <h4>Gel Manicure</h4>
-                        <p>Long-lasting color with OPI gel polish</p>
-                        <span class="service-price">From $65</span>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🌸</div>
-                        <h4>Luxury Pedicure</h4>
-                        <p>Complete foot care and relaxation</p>
-                        <span class="service-price">From $75</span>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🎨</div>
-                        <h4>Nail Art Design</h4>
-                        <p>Custom artistic designs for unique expression</p>
-                        <span class="service-price">From $85</span>
+            
+            <div class="gallery-item">
+                <div class="gallery-card">
+                    <picture>
+                        <source srcset="images/image5.png" type="image/png">
+                        <img src="images/image5.jpg" alt="Professional Service">
+                    </picture>
+                    <div class="gallery-overlay">
+                        <h3>Expert Care</h3>
+                        <p>Personalized attention</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="#services">Services</a>
-                    <a href="#booking">Book Appointment</a>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <span class="section-badge">Services</span>
+            <h2 class="section-title">Tailored to Perfection</h2>
+            <p class="section-subtitle">Choose from our curated selection of premium services</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon-wrapper">
+                    <div class="service-icon">💅</div>
+                </div>
+                <h3>Classic Manicure</h3>
+                <p>Traditional nail care with meticulous attention to detail and finishing touches</p>
+                <div class="service-features">
+                    <span>• Nail shaping</span>
+                    <span>• Cuticle care</span>
+                    <span>• Polish application</span>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">$45</span>
+                    <button class="service-btn">Select</button>
+                </div>
+            </div>
+
+            <div class="service-card featured">
+                <div class="featured-badge">Most Popular</div>
+                <div class="service-icon-wrapper">
+                    <div class="service-icon">✨</div>
+                </div>
+                <h3>Gel Manicure</h3>
+                <p>Long-lasting gel polish with premium OPI products for weeks of flawless beauty</p>
+                <div class="service-features">
+                    <span>• OPI Gel polish</span>
+                    <span>• 2-3 weeks lasting</span>
+                    <span>• Chip-resistant</span>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">$65</span>
+                    <button class="service-btn">Select</button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-wrapper">
+                    <div class="service-icon">🌸</div>
+                </div>
+                <h3>Luxury Pedicure</h3>
+                <p>Complete foot care experience with relaxation and rejuvenation treatments</p>
+                <div class="service-features">
+                    <span>• Foot soak & scrub</span>
+                    <span>• Massage therapy</span>
+                    <span>• Polish perfection</span>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">$75</span>
+                    <button class="service-btn">Select</button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-wrapper">
+                    <div class="service-icon">🎨</div>
+                </div>
+                <h3>Nail Art Design</h3>
+                <p>Custom artistic designs that express your unique style and personality</p>
+                <div class="service-features">
+                    <span>• Custom designs</span>
+                    <span>• Hand-painted art</span>
+                    <span>• Unique creations</span>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">$85+</span>
+                    <button class="service-btn">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="feature-box">
+                <div class="feature-icon">🏆</div>
+                <h4>Certified Professional</h4>
+                <p>Advanced certifications in nail artistry and care</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🧼</div>
+                <h4>Sanitized Tools</h4>
+                <p>Hospital-grade sterilization for your safety</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">💎</div>
+                <h4>Premium Products</h4>
+                <p>Exclusive OPI gel and luxury brands</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🎯</div>
+                <h4>Personalized Care</h4>
+                <p>One-on-one attention in private suite</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready for Your Transformation?</h2>
+            <p class="cta-description">Book your appointment today and experience luxury nail artistry</p>
+            <button class="btn-primary large" id="ctaBooking">
+                <span>Schedule Your Appointment</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Nails by Carolina</h3>
+                <p>Luxury nail artistry in a private suite</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <a href="#services">Manicures</a>
+                    <a href="#services">Pedicures</a>
+                    <a href="#services">Nail Art</a>
+                    <a href="#services">Gel Polish</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#gallery">Gallery</a>
                     <a href="admin.html">Admin</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <div class="footer-legal">
-                    <p>Copyright © 2026 Nails by Carolina LLC. All rights reserved.</p>
-                    <div class="footer-sub-links">
-                        <a href="#privacy">Privacy Policy</a>
-                        <span>|</span>
-                        <a href="#terms">Terms of Use</a>
-                    </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2026 Nails by Carolina LLC. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- Booking Modal Container -->
     <div class="booking-modal-container" id="bookingModalContainer">

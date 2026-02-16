@@ -1,13 +1,24 @@
-// Booking modal
-const openBookingBtn = document.getElementById('openBooking');
+// Booking modal handlers
+const bookingButtons = ['openBooking', 'navBooking', 'heroBooking', 'ctaBooking'];
 const bookingContainer = document.getElementById('bookingModalContainer');
 
-if (openBookingBtn) {
-    openBookingBtn.addEventListener('click', () => {
+bookingButtons.forEach(btnId => {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+        btn.addEventListener('click', () => {
+            bookingContainer.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+});
+
+// Service card buttons
+document.querySelectorAll('.service-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
         bookingContainer.classList.add('show');
         document.body.style.overflow = 'hidden';
     });
-}
+});
 
 // Listen for close message from iframe
 window.addEventListener('message', (event) => {
@@ -15,6 +26,31 @@ window.addEventListener('message', (event) => {
         bookingContainer.classList.remove('show');
         document.body.style.overflow = 'auto';
     }
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+        mobileMenuBtn.classList.toggle('active');
+    });
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
 // Intersection Observer for scroll animations
@@ -32,43 +68,35 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all animated elements
+// Observe elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.image-placeholder, .feature-item, .qr-section');
-    animatedElements.forEach(el => observer.observe(el));
-
-    // Add hover effect to checkmarks
-    const checkmarks = document.querySelectorAll('.checkmark');
-    checkmarks.forEach(checkmark => {
-        checkmark.addEventListener('mouseenter', () => {
-            checkmark.style.transform = 'rotate(360deg) scale(1.2)';
-            checkmark.style.transition = 'transform 0.5s ease';
-        });
-        
-        checkmark.addEventListener('mouseleave', () => {
-            checkmark.style.transform = 'rotate(0deg) scale(1)';
-        });
+    const animatedElements = document.querySelectorAll('.gallery-card, .service-card, .feature-box');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
     });
+});
 
-    // QR Code click interaction
-    const qrCode = document.querySelector('.qr-code');
-    if (qrCode) {
-        qrCode.addEventListener('click', () => {
-            qrCode.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                qrCode.style.transform = 'scale(1)';
-            }, 200);
-        });
+// Parallax effect for hero
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroImage = document.querySelector('.hero-image-container');
+    if (heroImage && scrolled < window.innerHeight) {
+        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
     }
+});
 
-    // Animate logo on load
-    const logo = document.querySelector('.logo');
-    setTimeout(() => {
-        logo.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            logo.style.transform = 'scale(1)';
-        }, 300);
-    }, 1000);
+// Add hover effect to gallery cards
+document.querySelectorAll('.gallery-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.zIndex = '1';
+    });
 });
 
 // Add sparkle effect on mouse move
