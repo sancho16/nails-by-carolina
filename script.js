@@ -1,3 +1,39 @@
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+
+// Set dark mode as default
+if (!localStorage.getItem('theme')) {
+    localStorage.setItem('theme', 'dark');
+}
+
+// Apply saved theme or default to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+if (savedTheme === 'light') {
+    htmlElement.setAttribute('data-theme', 'light');
+}
+
+// Toggle theme
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        if (newTheme === 'light') {
+            htmlElement.setAttribute('data-theme', 'light');
+        } else {
+            htmlElement.removeAttribute('data-theme');
+        }
+        
+        localStorage.setItem('theme', newTheme);
+        
+        // Haptic feedback
+        if ('vibrate' in navigator) {
+            navigator.vibrate(10);
+        }
+    });
+}
+
 // Booking modal handlers
 const bookingButtons = ['openBooking', 'navBooking', 'heroBooking', 'ctaBooking'];
 const bookingContainer = document.getElementById('bookingModalContainer');

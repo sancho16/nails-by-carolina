@@ -250,6 +250,13 @@
     </div>
 
     <script src="database.js"></script>
+    <script>
+        // Sync theme with parent or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
     <script src="booking.js"></script>
 </body>
 </html>

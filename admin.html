@@ -6,7 +6,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#1a1a1a">
     <title>Admin Dashboard - Nails by Carolina</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="admin-styles.css">
+    <script>
+        // Apply theme on load
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
 </head>
 <body>
     <!-- Auth Check Script -->
@@ -63,6 +71,16 @@
             </nav>
             
             <div class="sidebar-footer">
+                <button class="theme-toggle-admin" id="themeToggleAdmin">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 2v2m0 12v2M18 10h-2M4 10H2m14.364-5.364l-1.414 1.414M7.05 12.95l-1.414 1.414m9.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M17 10.5A7 7 0 1 1 9.5 3a5.5 5.5 0 0 0 7.5 7.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="theme-label">Theme</span>
+                </button>
                 <a href="index.html" class="view-site-btn">
                     <span>🌐</span>
                     <span>View Website</span>
@@ -105,8 +123,8 @@
                         <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">📅</div>
                         <div class="stat-info">
                             <h3>Today's Appointments</h3>
-                            <p class="stat-number">8</p>
-                            <span class="stat-change positive">+2 from yesterday</span>
+                            <p class="stat-number" id="todayCount">0</p>
+                            <span class="stat-change" id="todayChange">Loading...</span>
                         </div>
                     </div>
 
@@ -114,8 +132,8 @@
                         <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">💰</div>
                         <div class="stat-info">
                             <h3>Today's Revenue</h3>
-                            <p class="stat-number">$640</p>
-                            <span class="stat-change positive">+15% from average</span>
+                            <p class="stat-number" id="todayRevenue">$0</p>
+                            <span class="stat-change" id="revenueChange">Loading...</span>
                         </div>
                     </div>
 
@@ -123,18 +141,30 @@
                         <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">👥</div>
                         <div class="stat-info">
                             <h3>Total Clients</h3>
-                            <p class="stat-number">247</p>
-                            <span class="stat-change positive">+12 this month</span>
+                            <p class="stat-number" id="totalClients">0</p>
+                            <span class="stat-change" id="clientsChange">Loading...</span>
                         </div>
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">⭐</div>
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">📊</div>
                         <div class="stat-info">
-                            <h3>Average Rating</h3>
-                            <p class="stat-number">4.9</p>
-                            <span class="stat-change">Based on 156 reviews</span>
+                            <h3>This Month</h3>
+                            <p class="stat-number" id="monthRevenue">$0</p>
+                            <span class="stat-change" id="monthChange">Loading...</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>Booking Trends (Last 30 Days)</h3>
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Services Distribution</h3>
+                        <canvas id="servicesChart"></canvas>
                     </div>
                 </div>
 
@@ -142,22 +172,32 @@
                 <div class="section-card">
                     <div class="section-header">
                         <h2>Upcoming Appointments</h2>
-                        <button class="btn-primary">View All</button>
+                        <div class="header-actions">
+                            <button class="btn-filter" id="filterToday">Today</button>
+                            <button class="btn-filter" id="filterWeek">This Week</button>
+                            <button class="btn-filter active" id="filterAll">All</button>
+                        </div>
                     </div>
-                    <div class="appointments-list" id="appointmentsList"></div>
+                    <div class="appointments-list" id="appointmentsList">
+                        <div class="loading">Loading appointments...</div>
+                    </div>
                 </div>
 
-                <!-- Recent Activity -->
+                <!-- Recent Clients -->
                 <div class="section-card">
                     <div class="section-header">
-                        <h2>Recent Activity</h2>
+                        <h2>Recent Clients</h2>
+                        <button class="btn-primary" id="exportData">Export Data</button>
                     </div>
-                    <div class="activity-list" id="activityList"></div>
+                    <div class="clients-list" id="clientsList">
+                        <div class="loading">Loading clients...</div>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
+    <script src="database.js"></script>
     <script src="admin.js"></script>
 </body>
 </html>
