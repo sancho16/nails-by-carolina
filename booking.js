@@ -2,8 +2,8 @@
 let currentStep = 1;
 let selectedDate = null;
 let selectedTime = null;
-let selectedService = null;
-let selectedPrice = 0;
+let selectedServices = []; // Changed to array for multiple selections
+let totalPrice = 0;
 
 // Haptic feedback function
 function triggerHaptic(type = 'light') {
@@ -119,22 +119,42 @@ function selectTime(element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// Service selection
+// Service selection - Multiple selection support
 document.querySelectorAll('.service-option').forEach(option => {
     option.addEventListener('click', function() {
         triggerHaptic('medium');
         
-        document.querySelectorAll('.service-option').forEach(opt => {
-            opt.classList.remove('selected');
-        });
+        const serviceId = this.dataset.service;
+        const serviceName = this.querySelector('h4').textContent;
+        const servicePrice = parseFloat(this.dataset.price);
         
-        this.classList.add('selected');
-        selectedService = this.dataset.service;
-        selectedPrice = this.dataset.price;
+        // Toggle selection
+        if (this.classList.contains('selected')) {
+            // Deselect
+            this.classList.remove('selected');
+            selectedServices = selectedServices.filter(s => s.id !== serviceId);
+        } else {
+            // Select
+            this.classList.add('selected');
+            selectedServices.push({
+                id: serviceId,
+                name: serviceName,
+                price: servicePrice
+            });
+        }
+        
+        // Calculate total price
+        totalPrice = selectedServices.reduce((sum, service) => sum + service.price, 0);
         
         // Update summary
-        document.getElementById('summaryService').textContent = this.querySelector('h4').textContent;
-        document.getElementById('summaryPrice').textContent = '$' + selectedPrice;
+        if (selectedServices.length > 0) {
+            const serviceNames = selectedServices.map(s => s.name).join(', ');
+            document.getElementById('summaryService').textContent = serviceNames;
+            document.getElementById('summaryPrice').textContent = '$' + totalPrice;
+        } else {
+            document.getElementById('summaryService').textContent = '-';
+            document.getElementById('summaryPrice').textContent = '$0';
+        }
     });
 });
 
@@ -179,9 +199,9 @@ document.getElementById('nextStep1').addEventListener('click', () => {
 
 // Next Step 2
 document.getElementById('nextStep2').addEventListener('click', () => {
-    if (!selectedService) {
+    if (selectedServices.length === 0) {
         triggerHaptic('heavy');
-        alert('Please select a service');
+        alert('Please select at least one service');
         return;
     }
     goToStep(3);
@@ -192,7 +212,7 @@ document.getElementById('backStep2').addEventListener('click', () => goToStep(1)
 document.getElementById('backStep3').addEventListener('click', () => goToStep(2));
 
 // Submit booking
-document.getElementById('submitBooking').addEventListener('click', () => {
+document.getElementById('submitBooking').addEventListener('click', async () => {
     const name = document.getElementById('clientName').value;
     const phone = document.getElementById('clientPhone').value;
     const email = document.getElementById('clientEmail').value;
@@ -205,12 +225,13 @@ document.getElementById('submitBooking').addEventListener('click', () => {
     
     triggerHaptic('success');
     
-    // Save booking
+    // Save booking to database
     const booking = {
         date: selectedDate,
         time: selectedTime,
-        service: selectedService,
-        price: selectedPrice,
+        services: selectedServices, // Array of selected services
+        service: selectedServices.map(s => s.name).join(', '), // Comma-separated for display
+        price: totalPrice,
         name,
         phone,
         email,
@@ -218,9 +239,15 @@ document.getElementById('submitBooking').addEventListener('click', () => {
         timestamp: new Date().toISOString()
     };
     
-    const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-    bookings.push(booking);
-    localStorage.setItem('bookings', JSON.stringify(bookings));
+    try {
+        // Save to IndexedDB
+        if (typeof bookingDB !== 'undefined') {
+            await bookingDB.addBooking(booking);
+            console.log('✅ Booking saved to database');
+        }
+    } catch (error) {
+        console.error('❌ Error saving booking:', error);
+    }
     
     // Show success modal
     document.getElementById('confirmDate').textContent = 

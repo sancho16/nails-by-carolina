@@ -88,6 +88,12 @@
 
                 <!-- Step 2: Service Selection -->
                 <div class="step-content" id="step2">
+                    <div class="selection-hint">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.667 5L7.5 14.167 3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Select one or more services</span>
+                    </div>
                     <div class="services-list">
                         <div class="service-option" data-service="manicure" data-price="45">
                             <div class="service-icon">💅</div>
@@ -190,8 +196,8 @@
                             <span>Time:</span>
                             <strong id="summaryTime">-</strong>
                         </div>
-                        <div class="summary-item">
-                            <span>Service:</span>
+                        <div class="summary-item services-summary">
+                            <span>Services:</span>
                             <strong id="summaryService">-</strong>
                         </div>
                         <div class="summary-item total">
@@ -243,6 +249,7 @@
         </div>
     </div>
 
+    <script src="database.js"></script>
     <script src="booking.js"></script>
 </body>
 </html>

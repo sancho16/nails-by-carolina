@@ -339,6 +339,24 @@ body {
 }
 
 /* Service Options */
+.selection-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 208, 63, 0.1));
+    border-radius: 15px;
+    margin-bottom: 20px;
+    color: var(--dark);
+    font-weight: 600;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.selection-hint svg {
+    stroke: var(--gold);
+    flex-shrink: 0;
+}
+
 .services-list {
     display: flex;
     flex-direction: column;
@@ -488,6 +506,17 @@ body {
     justify-content: space-between;
     padding: 12px 0;
     border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-item.services-summary {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.summary-item.services-summary strong {
+    color: var(--gold);
+    line-height: 1.6;
 }
 
 .summary-item:last-child {
